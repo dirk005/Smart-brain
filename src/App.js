@@ -50,8 +50,12 @@ class App extends Component {
 
   componentDidMount() {
     const token = window.sessionStorage.getItem("token");
+    let url = "https://git.heroku.com/smart-detect.git";
+    if (process.env.NODE_ENV === "development") {
+      url = "http://localhost:3000";
+    }
     if (token) {
-      fetch(`http://localhost:3000/signin`, {
+      fetch(`${url}/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "applicaion/json",
@@ -124,8 +128,12 @@ class App extends Component {
 
   onButtonSubmit = () => {
     const token = window.sessionStorage.getItem("token");
+    let url = "https://git.heroku.com/smart-detect.git";
+    if (process.env.NODE_ENV === "development") {
+      url = "http://localhost:3000";
+    }
     this.setState({ imageUrl: this.state.input });
-    fetch("http://localhost:3000/imageurl", {
+    fetch(`${url}/imageurl`, {
       method: "post",
       headers: { "Content-Type": "application/json", Authorization: token },
       body: JSON.stringify({
@@ -135,7 +143,7 @@ class App extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch("http://localhost:3000/image", {
+          fetch(`${url}/image`, {
             method: "put",
             headers: {
               "Content-Type": "application/json",

@@ -23,7 +23,11 @@ class Signin extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    fetch("http://localhost:3000/signin", {
+    let url = "https://git.heroku.com/smart-detect.git";
+    if (process.env.NODE_ENV === "development") {
+      url = "http://localhost:3000";
+    }
+    fetch(`${url}/signin`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
