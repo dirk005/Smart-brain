@@ -20,7 +20,7 @@ class Profile extends Component {
 
   onProfileUpdate = (data) => {
     const token = window.sessionStorage.getItem("token");
-    let url = "https://powerful-crag-88676.herokuapp.com/";
+    let url = "https://powerful-crag-88676.herokuapp.com";
 
     fetch(`${url}/profile/${this.props.user.id}`, {
       method: "POST",

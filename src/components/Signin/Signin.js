@@ -23,7 +23,7 @@ class Signin extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    let url = "https://powerful-crag-88676.herokuapp.com/";
+    let url = "https://powerful-crag-88676.herokuapp.com";
 
     fetch(`${url}/signin`, {
       method: "post",
