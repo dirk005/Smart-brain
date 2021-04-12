@@ -23,7 +23,7 @@ class Register extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    let url = "https://git.heroku.com/smart-detect.git";
+    let url = "https://git.heroku.com/powerful-crag-88676.git";
     if (process.env.NODE_ENV === "development") {
       url = "http://localhost:3000";
     }
