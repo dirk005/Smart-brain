@@ -50,9 +50,9 @@ class App extends Component {
 
   componentDidMount() {
     const token = window.sessionStorage.getItem("token");
-    let url = "https://git.heroku.com/powerful-crag-88676.git";
-    if (process.env.NODE_ENV === "development") {
-      url = "http://localhost:3000";
+    let url = "http://localhost:3000";
+    if (process.env.SITE_LIVE === "development") {
+      url = "https://git.heroku.com/powerful-crag-88676.git";
     }
     if (token) {
       fetch(`${url}/signin`, {
@@ -128,9 +128,9 @@ class App extends Component {
 
   onButtonSubmit = () => {
     const token = window.sessionStorage.getItem("token");
-    let url = "https://git.heroku.com/powerful-crag-88676.git";
-    if (process.env.NODE_ENV === "development") {
-      url = "http://localhost:3000";
+    let url = "http://localhost:3000";
+    if (process.env.SITE_LIVE === "development") {
+      url = "https://git.heroku.com/powerful-crag-88676.git";
     }
     this.setState({ imageUrl: this.state.input });
     fetch(`${url}/imageurl`, {
