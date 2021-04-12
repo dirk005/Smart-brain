@@ -50,7 +50,7 @@ class App extends Component {
 
   componentDidMount() {
     const token = window.sessionStorage.getItem("token");
-    let url = "https://git.heroku.com/powerful-crag-88676.git";
+    let url = "https://powerful-crag-88676.herokuapp.com/";
 
     if (token) {
       fetch(`${url}/signin`, {
@@ -126,7 +126,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     const token = window.sessionStorage.getItem("token");
-    let url = "https://git.heroku.com/powerful-crag-88676.git";
+    let url = "https://powerful-crag-88676.herokuapp.com/";
 
     this.setState({ imageUrl: this.state.input });
     fetch(`${url}/imageurl`, {
