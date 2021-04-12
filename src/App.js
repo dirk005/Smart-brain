@@ -50,7 +50,7 @@ class App extends Component {
 
   componentDidMount() {
     const token = window.sessionStorage.getItem("token");
-    let url = "https://git.heroku.com/smart-detect.git";
+    let url = "https://git.heroku.com/powerful-crag-88676.git";
     if (process.env.NODE_ENV === "development") {
       url = "http://localhost:3000";
     }
@@ -65,7 +65,7 @@ class App extends Component {
         .then((res) => res.json())
         .then((data) => {
           if (data && data.id) {
-            fetch(`http://localhost:3000/profile/${data.id}`, {
+            fetch(`${url}/profile/${data.id}`, {
               method: "GET",
               headers: {
                 "Content-Type": "applicaion/json",
@@ -128,7 +128,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     const token = window.sessionStorage.getItem("token");
-    let url = "https://git.heroku.com/smart-detect.git";
+    let url = "https://git.heroku.com/powerful-crag-88676.git";
     if (process.env.NODE_ENV === "development") {
       url = "http://localhost:3000";
     }
