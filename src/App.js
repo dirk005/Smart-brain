@@ -129,6 +129,7 @@ class App extends Component {
   onButtonSubmit = () => {
     const token = window.sessionStorage.getItem("token");
     let url = "https://git.heroku.com/powerful-crag-88676.git";
+    console.log(process.env.NODE_ENV);
     if (process.env.NODE_ENV === "development") {
       url = "http://localhost:3000";
     }
