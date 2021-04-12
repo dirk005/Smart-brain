@@ -20,10 +20,8 @@ class Profile extends Component {
 
   onProfileUpdate = (data) => {
     const token = window.sessionStorage.getItem("token");
-    let url = "http://localhost:3000";
-    if (process.env.SITE_LIVE === "production") {
-      url = "https://git.heroku.com/powerful-crag-88676.git";
-    }
+    let url = "https://git.heroku.com/powerful-crag-88676.git";
+
     fetch(`${url}/profile/${this.props.user.id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: token },

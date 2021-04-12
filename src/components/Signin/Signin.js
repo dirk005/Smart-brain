@@ -23,11 +23,8 @@ class Signin extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    let url = "http://localhost:3000";
-    console.log(process.env.SITE_LIVE, process.env.NODE_ENV);
-    if (process.env.SITE_LIVE === "production") {
-      url = "https://git.heroku.com/powerful-crag-88676.git";
-    }
+    let url = "https://git.heroku.com/powerful-crag-88676.git";
+
     fetch(`${url}/signin`, {
       method: "post",
       headers: { "Content-Type": "application/json" },

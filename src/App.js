@@ -50,10 +50,8 @@ class App extends Component {
 
   componentDidMount() {
     const token = window.sessionStorage.getItem("token");
-    let url = "http://localhost:3000";
-    if (process.env.SITE_LIVE === "production") {
-      url = "https://git.heroku.com/powerful-crag-88676.git";
-    }
+    let url = "https://git.heroku.com/powerful-crag-88676.git";
+
     if (token) {
       fetch(`${url}/signin`, {
         method: "POST",
@@ -128,10 +126,8 @@ class App extends Component {
 
   onButtonSubmit = () => {
     const token = window.sessionStorage.getItem("token");
-    let url = "http://localhost:3000";
-    if (process.env.SITE_LIVE === "production") {
-      url = "https://git.heroku.com/powerful-crag-88676.git";
-    }
+    let url = "https://git.heroku.com/powerful-crag-88676.git";
+
     this.setState({ imageUrl: this.state.input });
     fetch(`${url}/imageurl`, {
       method: "post",

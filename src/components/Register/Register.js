@@ -23,10 +23,8 @@ class Register extends React.Component {
   };
 
   onSubmitSignIn = () => {
-    let url = "http://localhost:3000";
-    if (process.env.SITE_LIVE === "production") {
-      url = "https://git.heroku.com/powerful-crag-88676.git";
-    }
+    let url = "https://git.heroku.com/powerful-crag-88676.git";
+
     fetch(`${url}/register`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
