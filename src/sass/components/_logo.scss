@@ -1,0 +1,23 @@
+.Tilt {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 10px $color-black;
+  background: linear-gradient(
+    89deg,
+    $color-primary-dark 0%,
+    $color-primary-light 100%
+  );
+
+  &-inner {
+    overflow: hidden;
+    &_image {
+      margin: 0.5rem;
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+}

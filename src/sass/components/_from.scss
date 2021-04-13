@@ -1,0 +1,61 @@
+.form {
+  width: 70rem;
+  margin: 2rem auto;
+  padding: 3rem;
+  border-radius: 0 10rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid $color-primary-light;
+  box-shadow: 1px 2px 10px $color-primary-dark;
+  color: $color-grey-light-4;
+  font-size: 2rem;
+
+  &_heading {
+    font-size: 4.5rem;
+    text-decoration: underline;
+    margin-bottom: 4rem;
+  }
+
+  &_item {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-label {
+      padding: 1rem 0;
+      &:after {
+        content: " : ";
+      }
+    }
+    &-input {
+      width: 80%;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border: none;
+      border-bottom: 0.2rem solid transparent; // Add to hold place for border not to move elements when clicking
+
+      &:active,
+      &:focus {
+        outline: none;
+        border: none;
+        border-bottom: 0.2rem solid $color-primary;
+      }
+    }
+  }
+
+  &_button {
+    padding: 1rem 2rem;
+    background-color: $color-primary-light;
+    border: 1px solid $color-black;
+    box-shadow: 1px 1px 10px $color-primary-dark;
+    margin: 1rem auto;
+    width: 30%;
+    transition: all 0.5s;
+    &:hover {
+      transform: translateY(-0.1rem);
+    }
+    &:focus,
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

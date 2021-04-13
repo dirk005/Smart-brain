@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  background-color: $color-primary;
+  margin-bottom: 2rem;
+
+  &_button {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    margin: 1rem;
+    padding: 1rem;
+    transition: all 1s;
+    &:hover {
+      background-color: $color-white;
+    }
+    &:active {
+      background-color: transparent;
+    }
+  }
+}

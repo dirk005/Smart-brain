@@ -22,6 +22,7 @@ class Rank extends Component {
   }
 
   generateEmoji = (entries) => {
+    // Get data form a aws api
     fetch(
       `https://y1ws8ef5o2.execute-api.us-east-1.amazonaws.com/rank?rank=${entries}`
     )
@@ -33,12 +34,19 @@ class Rank extends Component {
     const { name, entries } = this.props;
     const { emoji } = this.state;
     return (
-      <div>
-        <div className="white f3">
-          {`${name}, your current entry count is...`}
+      <div className="rank">
+        <div className="rank_heading">
+          {`${
+            name.charAt(0).toUpperCase() + name.slice(1)
+          }, your current entry count is...`}
         </div>
-        <div className="white f1">{entries}</div>
-        <div className="white f3"> {`Rank Badge ${emoji}`}</div>
+        <div className="rank_entries">{entries}</div>
+        <div className="rank_badge"> {`Rank Badge ${emoji}`}</div>
+        <p className="rank_text">
+          {
+            "This Magic Brain will detect faces in your pictures. Paste your url and give it a try."
+          }
+        </p>
       </div>
     );
   }

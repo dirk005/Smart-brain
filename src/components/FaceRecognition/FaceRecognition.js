@@ -1,11 +1,15 @@
 import React from "react";
-import "./FaceRecognition.css";
 
 const FaceRecognition = ({ imageUrl, boxes }) => {
   return (
-    <div className="center ma">
-      <div className="absolute mt2">
-        <img id="inputimage" alt="" src={imageUrl} width="500px" heigh="auto" />
+    <div className="faceRecognition">
+      <div className="faceRecognition_box">
+        <img
+          className="faceRecognition_image"
+          id="inputimage"
+          alt=""
+          src={imageUrl}
+        />
         {boxes.map((box) => (
           <div
             key={box.topRow}

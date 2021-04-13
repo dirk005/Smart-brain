@@ -1,0 +1,24 @@
+.faceRecognition {
+  position: relative;
+  // width: 5rem;
+  margin: 2rem auto;
+  padding: 0 2rem;
+
+  &_box {
+    position: relative;
+  }
+  &_image {
+    border: 1px solid $color-primary-light;
+    box-shadow: 0 0 20px $color-primary-dark;
+    // width: 80%;
+  }
+}
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #09a866 inset;
+  border-radius: 50rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: pointer;
+}

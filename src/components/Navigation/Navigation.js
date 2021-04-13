@@ -4,25 +4,22 @@ import ProfileIcon from "../Profile/ProfileIcon";
 const Navigation = ({ onRouteChange, isSignedIn, toggleModal }) => {
   if (isSignedIn) {
     return (
-      <nav style={{ display: "flex", justifyContent: "flex-end" }}>
+      <nav className="nav">
         <ProfileIcon onRouteChange={onRouteChange} toggleModal={toggleModal} />
       </nav>
     );
   } else {
     return (
-      <nav style={{ display: "flex", justifyContent: "flex-end" }}>
-        <p
-          onClick={() => onRouteChange("signin")}
-          className="f3 link dim black underline pa3 pointer"
-        >
+      <nav className="nav">
+        <button onClick={() => onRouteChange("signin")} className="nav_button">
           Sign In
-        </p>
-        <p
+        </button>
+        <button
           onClick={() => onRouteChange("register")}
-          className="f3 link dim black underline pa3 pointer"
+          className="nav_button"
         >
           Register
-        </p>
+        </button>
       </nav>
     );
   }

@@ -1,0 +1,23 @@
+/* Import abstracts files */
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+
+/* Import Base files */
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+/* Import Component files */
+@import "components/from";
+@import "components/navigation";
+@import "components/faceRecognition";
+@import "components/rank";
+@import "components/logo";
+@import "components/profile";
+
+/* Import Layout files */
+
+/* Import Page files */
+@import "pages/app";

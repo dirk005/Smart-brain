@@ -12,7 +12,7 @@ const ProfileIcon = ({ onRouteChange, toggleModal }) => {
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
-    <div className="pa3 tc">
+    <div className="profile">
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle
           tag="span"
@@ -20,19 +20,12 @@ const ProfileIcon = ({ onRouteChange, toggleModal }) => {
           aria-expanded={dropdownOpen}
         >
           <img
-            src="http://tachyons.io/img/logo.jpg"
-            className="br-100 ba h3 w3 dib"
+            src="https://cdn.britannica.com/16/170816-050-0FB450D3/Brain-illustration.jpg"
+            className="profile_image"
             alt="avatar"
           />
         </DropdownToggle>
-        <DropdownMenu
-          right
-          className="b--transperent shadow-5"
-          style={{
-            marginTop: "25px",
-            backgroundColor: "rgba(255,255,255,0.5",
-          }}
-        >
+        <DropdownMenu right className="profile_dropdown">
           <DropdownItem onClick={() => toggleModal()}>
             View Profile
           </DropdownItem>

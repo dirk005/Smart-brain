@@ -1,0 +1,31 @@
+.App {
+  position: relative;
+  text-align: center;
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5rem;
+    &_item {
+      padding: 2rem;
+      margin: 2rem;
+      width: 10rem;
+    }
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}

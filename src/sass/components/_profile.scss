@@ -1,0 +1,72 @@
+.profile {
+  &-modal {
+    background-color: rgba(8, 8, 8, 1);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_image {
+    margin: 1rem;
+    border-radius: 1rem;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+
+  &_dropdown {
+    margin-top: 3rem;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &_buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &_button {
+    padding: 1rem 2rem;
+    background-color: $color-primary;
+    border: 1px solid $color-black;
+    box-shadow: 1px 1px 10px $color-primary-dark;
+    margin: 1rem auto;
+    width: 30%;
+    transition: all 0.5s;
+    &:hover {
+      transform: translateY(-0.1rem);
+    }
+    &:focus,
+    &:active {
+      transform: translateY(0);
+    }
+
+    &-cancel {
+      background-color: rgb(233, 103, 42);
+      box-shadow: 1px 1px 10px rgb(245, 78, 0);
+    }
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 2rem;
+  right: 5rem;
+  font-size: 3rem;
+  font-style: bold;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: gray;
+}
+
+#modal-root {
+  position: relative;
+  z-index: 999;
+}

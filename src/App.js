@@ -9,16 +9,29 @@ import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank";
 import Modal from "./components/Modal/Modal";
 import Profile from "./components/Profile/Profile";
-import "./App.css";
 
 const particlesOptions = {
-  //customize this to your liking
+  //Options for partical background
   particles: {
+    color: { value: "#48857d" },
+    shape: {
+      stroke: {
+        width: 5,
+        color: "#48857d",
+      },
+    },
+    line_linked: {
+      enable: true,
+      distance: 100,
+      color: "#116e82",
+      opacity: 0.8,
+      width: 2,
+    },
     number: {
-      value: 30,
+      value: 60,
       density: {
         enable: true,
-        value_area: 800,
+        value_area: 500,
       },
     },
   },
@@ -28,7 +41,7 @@ const initialState = {
   input: "",
   imageUrl: "",
   boxes: [],
-  route: "signin", //"signin"
+  route: "signin",
   isSignedIn: false,
   isProfileOpen: false,
   user: {
@@ -37,8 +50,6 @@ const initialState = {
     email: "",
     entries: 0,
     joined: "",
-    pet: "",
-    age: "0",
   },
 };
 
@@ -49,6 +60,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // Check if loged in on refresh and log back in
     const token = window.sessionStorage.getItem("token");
     let url = "https://powerful-crag-88676.herokuapp.com";
 
@@ -84,6 +96,7 @@ class App extends Component {
   }
 
   loadUser = (data) => {
+    //Load user data in app
     this.setState({
       user: {
         id: data.id,
@@ -96,6 +109,7 @@ class App extends Component {
   };
 
   calculateFaceLocations = (data) => {
+    //Calculate where the face boxes must be desplayed
     if (data && data.outputs) {
       return data.outputs[0].data.regions.map((face) => {
         const clarifaiFace = face.region_info.bounding_box;
@@ -115,20 +129,22 @@ class App extends Component {
   };
 
   displayFaceBoxes = (boxes) => {
+    //set boxes state value
     if (boxes) {
       this.setState({ boxes: boxes });
     }
   };
 
   onInputChange = (event) => {
+    //get input value
     this.setState({ input: event.target.value });
   };
 
   onButtonSubmit = () => {
+    //submut image to backend
     const token = window.sessionStorage.getItem("token");
     let url = "https://powerful-crag-88676.herokuapp.com";
-
-    this.setState({ imageUrl: this.state.input });
+    this.setState({ imageUrl: this.state.input }); // get url link
     fetch(`${url}/imageurl`, {
       method: "post",
       headers: { "Content-Type": "application/json", Authorization: token },
@@ -161,6 +177,7 @@ class App extends Component {
   };
 
   onRouteChange = (route) => {
+    //Change routes
     if (route === "signout") {
       return this.setState(initialState);
     } else if (route === "home") {
@@ -170,6 +187,7 @@ class App extends Component {
   };
 
   toggleModal = () => {
+    //toggle profile modal on and off
     this.setState(
       (prevState) => ({
         //...prevState,
@@ -209,16 +227,18 @@ class App extends Component {
         {route === "home" ? (
           <div>
             <Logo />
-
-            <Rank
-              name={this.state.user.name}
-              entries={this.state.user.entries}
-            />
-            <ImageLinkForm
-              onInputChange={this.onInputChange}
-              onButtonSubmit={this.onButtonSubmit}
-            />
-            <FaceRecognition boxes={boxes} imageUrl={imageUrl} />
+            <div className="App_container">
+              <div className="App_container-item">
+                <Rank name={user.name} entries={user.entries} />
+                <ImageLinkForm
+                  onInputChange={this.onInputChange}
+                  onButtonSubmit={this.onButtonSubmit}
+                />
+              </div>
+              <div className="App_container-item">
+                <FaceRecognition boxes={boxes} imageUrl={imageUrl} />
+              </div>
+            </div>
           </div>
         ) : route === "signin" ? (
           <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
